@@ -3,6 +3,7 @@ import json
 from datetime import datetime
 from pathlib import Path
 from dotenv import load_dotenv
+from clean_transcript import clean_transcript
 
 load_dotenv(Path(__file__).parent / ".env")
 
@@ -153,6 +154,11 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
     output_base = str(output_dir / audio_file.stem)
     save_results(response, output_base)
+
+    # Generate clean transcript
+    speakers_file = output_dir / f"{audio_file.stem}_speakers.txt"
+    clean_file = output_dir / f"{audio_file.stem}_clean.txt"
+    clean_transcript(speakers_file, clean_file)
 
     # Print preview
     print("\n--- Preview ---")
