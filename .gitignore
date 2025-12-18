@@ -1,3 +1,4 @@
 input/
 output/
 .env
+__pycache__/
