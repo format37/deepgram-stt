@@ -2,3 +2,4 @@ input/
 output/
 .env
 __pycache__/
+docs/
